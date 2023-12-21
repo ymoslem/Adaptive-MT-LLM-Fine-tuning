@@ -1,0 +1,38 @@
+System,Model,Beam Size,Batch Size,BLEU,chrF++,TER,COMET,,File
+Source only,HF,2,,44.72,66.89,44.16,67.83,,
+Source only,CT2 600M,2,2024 tokens,44.67,66.85,44.42,63.63,,
+Source only,CT2 600M,2,2024 tokens,44.67,66.85,44.42,67.1,florest sp,
+Source only,CT2 3.3B,2,2024 tokens,47.02,68.82,43.43,66.46,,all-filtered.es.real.test.translated-nllb3.3-ct2-beam2.en
+Fuzzy,CT2 3.3B,2,2024 tokens,47.33,68.45,44.79,62.58,with \n,
+Fuzzy,CT2 3.3B,2,2024 tokens,46.97,68.12,45.28,59.97,no \n,
+Fuzzy,CT2 3.3B,2,2024 tokens,47.42,68.77,45.26,64.57,"with ""•""",all-filtered.esen.ms-multi-12.online.test.translated-nllb3.3-ct2-beam2-bulletpoint.en
+,,,,,,,,,
+Source Only,ChatGPT - gpt-3.5-turbo,,20,44.65,68.36,44.28,74.48,,
+Fuzzy,ChatGPT - gpt-3.5-turbo,,20,48.34,70.54,40.8,80.25,,
+,,,,,,,,,
+Source Only,Mistral,,32384,42.88,66.01,46.61,69.48,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-zero-shot-batch32384.en
+Fuzzy,Mistral,,32384,47.28,69.2,42.54,76.29,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-one-shot-batch32384.en
+,,,,,,,,,
+Source Only,Mistral,,8096,42.88,66.03,46.54,69.56,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-zero-shot-batch8096.en
+Fuzzy,Mistral,,8096,47.35,69.25,42.53,76.37,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-one-shot-batch8096.en
+,,,,,,,,,
+Source Only,Mistral - fine-tuned v1 Nov25,,8096,46.71,69.55,41.81,77.44,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-finetuned-v1-zero-shot.en
+Fuzzy,Mistral - fine-tuned v1 Nov25,,8096,49.69,70.89,40.08,79.62,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-finetuned-v1-one-shot.en
+,,,,,,,,,
+Source Only,Mistral - fine-tuned v2 Nov26,,8096,43.96,66.31,45.66,72.81,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-finetuned-v2-zero-shot.en
+Fuzzy,Mistral - fine-tuned v2 Nov26,,8096,45.56,67.28,44.36,74.3,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-finetuned-v2-one-shot.en
+,,,,,,,,,
+Source Only,Mistral-Instruct,,32384,,,,,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-Instruct-zero-shot.en
+Fuzzy,Mistral-Instruct,,32384,11.6,61.25,46.52,56.99,,all-filtered.esen.ms-multi-12.online.test.translated-Mistral-Instruct-one-shot.en
+,,,,,,,,,
+Source Only,Falcon,,32384,24.88,52.33,76.64,27.49,,all-filtered.esen.ms-multi-12.online.test.translated-Falcon-zero-shot.en
+Fuzzy,Falcon,,32384,29.71,55.9,69.87,37.21,,all-filtered.esen.ms-multi-12.online.test.translated-Falcon-one-shot.en
+,,,,,,,,,
+Source Only,Falcon-Instruct,,32384,18.78,45.72,91.86,13.99,,all-filtered.esen.ms-multi-12.online.test.translated-Falcon-Instruct-zero-shot.en
+Fuzzy,Falcon-Instruct,,32384,,,,,,all-filtered.esen.ms-multi-12.online.test.translated-Falcon-Instruct-one-shot.en
+,,,,,,,,,
+Source Only,GPT-J,,8096,31.96,55.49,61.02,36.24,blank 462 sents,all-filtered.esen.ms-multi-12.online.test.translated-GPT-J-6B-batch8096-zero-shot.en
+Fuzzy,GPT-J,,8096,38.64,61.76,52.01,55.28,,all-filtered.esen.ms-multi-12.online.test.translated-GPT-J-6B-batch8096-one-shot.en
+,,,,,,,,,
+Source Only,Zypher,,8096,39.34,64.13,49.19,67.14,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-zero-shot.en
+Fuzzy,Zypher,,8096,44.6,66.93,45.09,73.63,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-one-shot.en
