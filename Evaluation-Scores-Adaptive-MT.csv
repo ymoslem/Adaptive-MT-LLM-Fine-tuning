@@ -34,5 +34,5 @@ Fuzzy,Falcon-Instruct,,32384,,,,,,all-filtered.esen.ms-multi-12.online.test.tran
 Source Only,GPT-J,,8096,31.96,55.49,61.02,36.24,blank 462 sents,all-filtered.esen.ms-multi-12.online.test.translated-GPT-J-6B-batch8096-zero-shot.en
 Fuzzy,GPT-J,,8096,38.64,61.76,52.01,55.28,,all-filtered.esen.ms-multi-12.online.test.translated-GPT-J-6B-batch8096-one-shot.en
 ,,,,,,,,,
-Source Only,Zypher,,8096,39.34,64.13,49.19,67.14,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-zero-shot.en
-Fuzzy,Zypher,,8096,44.6,66.93,45.09,73.63,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-one-shot.en
+Source Only,Zephyr,,8096,39.34,64.13,49.19,67.14,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-zero-shot.en
+Fuzzy,Zephyr,,8096,44.6,66.93,45.09,73.63,,all-filtered.esen.ms-multi-12.online.test.translated-Zephyr-batch8096-one-shot.en
