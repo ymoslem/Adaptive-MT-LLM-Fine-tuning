@@ -2,7 +2,7 @@
 
 Code and data for the paper [Fine-tuning Large Language Models for Adaptive Machine Translation](https://arxiv.org/abs/2312.12740)
 
-The paper presents the outcomes of fine-tuning Mistral 7B, a general-purpose large language model (LLM), for adaptive machine translation (MT). The fine-tuning process involves utilizing a combination of zero-shot and one-shot translation prompts within the medical domain. The primary objective is to enhance real-time adaptive MT capabilities of Mistral 7B, enabling it to adapt translations to the required domain at inference time. Our experiments demonstrate that, with a relatively small dataset of 20,000 segments that incorporate a mix of zero-shot and one-shot prompts, fine-tuning significantly enhances Mistral's in-context learning ability, especially for real-time adaptive MT.
+The paper presents the outcomes of fine-tuning Mistral 7B, a general-purpose large language model (LLM), for adaptive machine translation (MT). The fine-tuning process involves utilizing a combination of zero-shot and one-shot translation prompts within the medical domain. Zero-shot prompts represet regular translation without any context, while one-shot prompts augment the new source with a similar translation pair, i.e. a fuzzy match, to improve the adherence to terminology and style of the domain The primary objective is to enhance real-time adaptive MT capabilities of Mistral 7B, enabling it to adapt translations to the required domain at inference time. Our experiments demonstrate that, with a relatively small dataset of 20,000 segments that incorporate a mix of zero-shot and one-shot prompts, fine-tuning significantly enhances Mistral's in-context learning ability, especially for real-time adaptive MT.
 
 ## Data (training and test)
 
@@ -45,7 +45,7 @@ ct2-transformers-converter --model mistralai/Mistral-7B-v0.1 --quantization int8
 
 * **NLLB-200**: To convert NLLB-200 to the CTranslate2 format:
 ```
-!ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantization int8 --output_dir ct2/nllb-200-distilled-600M-int8
+ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantization int8 --output_dir ct2/nllb-200-distilled-600M-int8
 ```
 
 ### Tokenizers
