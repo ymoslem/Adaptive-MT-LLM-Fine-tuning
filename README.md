@@ -2,39 +2,80 @@
 
 Code and data for the paper [Fine-tuning Large Language Models for Adaptive Machine Translation](https://arxiv.org/abs/2312.12740)
 
-# Citations
+The paper presents the outcomes of fine-tuning Mistral 7B, a general-purpose large language model (LLM), for adaptive machine translation (MT). The fine-tuning process involves utilizing a combination of zero-shot and one-shot translation prompts within the medical domain. The primary objective is to enhance real-time adaptive MT capabilities of Mistral 7B, enabling it to adapt translations to the required domain at inference time. Our experiments demonstrate that, with a relatively small dataset of 20,000 segments that incorporate a mix of zero-shot and one-shot prompts, fine-tuning significantly enhances Mistral's in-context learning ability, especially for real-time adaptive MT.
+
+## Data (training and test)
+
+The original dataset is a mix of medical datasets from [OPUS](https://opus.nlpl.eu/), namely ELRC, EMEA, SciELO, and TICO-19.
+
+### Training data (small)
+
+* [Fine-tuning data - small](data/small-train/all-filtered.es.real.smalltrain): Data for actual fine-tuning: 10,000 translation pairs
+* [Context Dataset](data/small-train/all-filtered.es.fuzzy.smalltrain): Data for fuzzy match retrieval _for training_: 50,000 translation pairs
+* [Retrieved data](data/small-train/all-filtered.esen.ms-multi-12.online.smalltrain): Data after retrieval _for training_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
+
+### Test Data
+
+* [Test dataset](data/test/all-filtered.es.real.test): Data used for actual inference/translation: 10,000 translation pairs
+* [Context Dataset](data/test/all-filtered.es.fuzzy.test): Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
+* [Retrieved data](data/test/all-filtered.esen.ms-multi-12.online.test): Data after retrieval _for testing_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
+
+## Data Processing
+
+The original dataset is a mix of medical datasets from OPUS, namely ELRC, EMEA, SciELO, and TICO-19. The pre-processing step mainly removes duplicates and too long sentences. The code for data pre-processing is at [Data-Processing-Adaptive-MT.ipynb](Data-Processing-Adaptive-MT.ipynb)
+
+## Fuzzy Match Retrieval
+
+We use [Sentence-Transformers](https://www.sbert.net/) with a multilingual model, namely Microsoft’s “_Multilingual-MiniLM-L12-H384_”, to generate the embeddings for the datasets. For indexing, we use [Faiss](https://github.com/facebookresearch/faiss). Then we retrieve fuzzy matches through semantic search. You can find more details about the retrieval process in our [paper]([url](https://arxiv.org/abs/2312.12740)). The code of this fuzzy match retrieval process is at [Retrieve-Fuzzy-Matches-Faiss-Adaptive-MT.ipynb](Retrieve-Fuzzy-Matches-Faiss-Adaptive-MT.ipynb)
+
+## Fine-tuning Mistral 7B
+
+We used QLoRA for efficient fine-tuning with 4bit quantization, with Hugging Face Transformers more details are in the [paper]([url](https://arxiv.org/abs/2312.12740)) and the notebook [Mistral-Fine-Tuning-Adaptive-MT.ipynb](Mistral-Fine-Tuning-Adaptive-MT.ipynb)
+
+
+## Inference
+
+### Conversion to the CTranslate2 format
+
+* **Mistral 7B (baseline)**: To convert Mistral baseline (before fine-tuning) to the CTranslate2 format:
+```
+ct2-transformers-converter --model mistralai/Mistral-7B-v0.1 --quantization int8 --output_dir ct2-mistral-7B-v0.1
+```
+* **Mistral 7B (fine-tuned):** To convert Mistral after FINE-TUNING to the CTranslate2 format, check the steps at [Convert-Mistral-Finetuned-CTranslate2.ipynb](Convert-Mistral-Finetuned-CTranslate2.ipynb)
+
+* **NLLB-200**: To convert NLLB-200 to the CTranslate2 format:
+```
+!ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantization int8 --output_dir ct2/nllb-200-distilled-600M-int8
+```
+
+### Tokenizers
+
+* Mistral: You can directly use the tokenizers from the Transformers library as illustrated in the notebook [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
+* To download the SentencePiece model; then use it as as illustrated in the notebook [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
+```
+!wget https://s3.amazonaws.com/opennmt-models/nllb-200/flores200_sacrebleu_tokenizer_spm.model
+```
+
+### Translation
+
+* Mistral: Translation code is at [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
+* NLLB: Translation code is at [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
+* ChatGPT: Translation via the official API; the code is at [ChatGPT-Adaptive-MT.ipynb](ChatGPT-Adaptive-MT.ipynb)
+
+## Evaluation
+
+Evaluation was done based on BLEU, chrF++, TER, and COMET metrics. The code is available at [Evaluation-Adaptive-MT.ipynb](Evaluation-Adaptive-MT.ipynb). The full evaluation scores are available athe [paper](https://arxiv.org/abs/2312.12740) under the Results secion, and a detailed version is at [Evaluation-Scores-Adaptive-MT.csv](Evaluation-Scores-Adaptive-MT.csv)
+
+
+
+## Citations
+
+1. Fine-tuning Large Language Models for Adaptive Machine Translation
+   
 ```
 @ARTICLE{Moslem2023-Finetuning-LLM-AdaptiveMT,
-  title         = "{Fine-tuning Large Language Models for Adaptive Machine
-                   Translation}",
+  title         = "{Fine-tuning Large Language Models for Adaptive Machine Translation}",
   author        = "Moslem, Yasmin and Haque, Rejwanul and Way, Andy",
-  abstract      = "This paper presents the outcomes of fine-tuning Mistral 7B,
-                   a general-purpose large language model (LLM), for adaptive
-                   machine translation (MT). The fine-tuning process involves
-                   utilising a combination of zero-shot and one-shot
-                   translation prompts within the medical domain. The primary
-                   objective is to enhance real-time adaptive MT capabilities
-                   of Mistral 7B, enabling it to adapt translations to the
-                   required domain at inference time. The results, particularly
-                   for Spanish-to-English MT, showcase the efficacy of the
-                   fine-tuned model, demonstrating quality improvements in both
-                   zero-shot and one-shot translation scenarios, surpassing
-                   Mistral 7B's baseline performance. Notably, the fine-tuned
-                   Mistral outperforms ChatGPT ``gpt-3.5-turbo'' in zero-shot
-                   translation while achieving comparable one-shot translation
-                   quality. Moreover, the zero-shot translation of the
-                   fine-tuned Mistral matches NLLB 3.3B's performance, and its
-                   one-shot translation quality surpasses that of NLLB 3.3B.
-                   These findings emphasise the significance of fine-tuning
-                   efficient LLMs like Mistral 7B to yield high-quality
-                   zero-shot translations comparable to task-oriented models
-                   like NLLB 3.3B. Additionally, the adaptive gains achieved in
-                   one-shot translation are comparable to those of commercial
-                   LLMs such as ChatGPT. Our experiments demonstrate that, with
-                   a relatively small dataset of 20,000 segments that
-                   incorporate a mix of zero-shot and one-shot prompts,
-                   fine-tuning significantly enhances Mistral's in-context
-                   learning ability, especially for real-time adaptive MT.",
   month         =  dec,
   year          =  2023,
   url           = "http://arxiv.org/abs/2312.12740",
@@ -44,41 +85,15 @@ Code and data for the paper [Fine-tuning Large Language Models for Adaptive Mach
 }
 
 ```
+2. Adaptive Machine Translation with Large Language Models
 
 ```
 
 @INPROCEEDINGS{Moslem2023-AdaptiveMT,
   title     = "{Adaptive Machine Translation with Large Language Models}",
-  booktitle = "{Proceedings of the 24th Annual Conference of the European
-               Association for Machine Translation}",
-  author    = "Moslem, Yasmin and Haque, Rejwanul and Kelleher, John D and Way,
-               Andy",
-  abstract  = "Consistency is a key requirement of high-quality translation. It
-               is especially important to adhere to pre-approved terminology
-               and adapt to corrected translations in domain-specific projects.
-               Machine translation (MT) has achieved significant progress in
-               the area of domain adaptation. However, real-time adaptation
-               remains challenging. Large-scale language models (LLMs) have
-               recently shown interesting capabilities of in-context learning,
-               where they learn to replicate certain input-output text
-               generation patterns, without further fine-tuning. By feeding an
-               LLM at inference time with a prompt that consists of a list of
-               translation pairs, it can then simulate the domain and style
-               characteristics. This work aims to investigate how we can
-               utilize in-context learning to improve real-time adaptive MT.
-               Our extensive experiments show promising results at translation
-               time. For example, GPT-3.5 can adapt to a set of in-domain
-               sentence pairs and/or terminology while translating a new
-               sentence. We observe that the translation quality with few-shot
-               in-context learning can surpass that of strong encoder-decoder
-               MT systems, especially for high-resource languages. Moreover, we
-               investigate whether we can combine MT from strong
-               encoder-decoder models with fuzzy matches, which can further
-               improve translation quality, especially for less supported
-               languages. We conduct our experiments across five diverse
-               language pairs, namely English-to-Arabic (EN-AR),
-               English-to-Chinese (EN-ZH), English-to-French (EN-FR),
-               English-to-Kinyarwanda (EN-RW), and English-to-Spanish (EN-ES).",
+  booktitle = "{Proceedings of the 24th Annual Conference of the European Association
+               for Machine Translation}",
+  author    = "Moslem, Yasmin and Haque, Rejwanul and Kelleher, John D and Way, Andy",
   publisher = "European Association for Machine Translation",
   pages     = "227--237",
   month     =  jun,
