@@ -50,21 +50,21 @@ ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantizati
 
 ### Tokenizers
 
-* Mistral: You can directly use the tokenizers from the Transformers library as illustrated in the notebook [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
-* To download the SentencePiece model; then use it as as illustrated in the notebook [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
+* **Mistral 7B**: You can directly use the tokenizers from the Transformers library as illustrated in the notebook [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
+* **NLLB-200**: Download the SentencePiece model for NLLB-200; then use it as as illustrated in the notebook [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
 ```
 !wget https://s3.amazonaws.com/opennmt-models/nllb-200/flores200_sacrebleu_tokenizer_spm.model
 ```
 
 ### Translation
 
-* Mistral: Translation code is at [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
-* NLLB: Translation code is at [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
-* ChatGPT: Translation via the official API; the code is at [ChatGPT-Adaptive-MT.ipynb](ChatGPT-Adaptive-MT.ipynb)
+* **Mistral 7B** (baseline and fine-tuned): Translation code with CTranslate2 is at [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
+* **NLLB-200**: Translation code with CTranslate2 is at [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
+* **ChatGPT**: Translation via the official API; the code is at [ChatGPT-Adaptive-MT.ipynb](ChatGPT-Adaptive-MT.ipynb)
 
 ## Evaluation
 
-Evaluation was done based on BLEU, chrF++, TER, and COMET metrics. The code is available at [Evaluation-Adaptive-MT.ipynb](Evaluation-Adaptive-MT.ipynb). The full evaluation scores are available athe [paper](https://arxiv.org/abs/2312.12740) under the Results secion, and a detailed version is at [Evaluation-Scores-Adaptive-MT.csv](Evaluation-Scores-Adaptive-MT.csv)
+Evaluation was done based on BLEU, chrF++, TER, and COMET metrics. The code is available at [Evaluation-Adaptive-MT.ipynb](Evaluation-Adaptive-MT.ipynb). The full evaluation scores are available at the [paper](https://arxiv.org/abs/2312.12740) under the Results section, and a detailed version is at [Evaluation-Scores-Adaptive-MT.csv](Evaluation-Scores-Adaptive-MT.csv)
 
 
 
