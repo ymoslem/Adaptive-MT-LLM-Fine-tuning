@@ -30,7 +30,7 @@ We use [Sentence-Transformers](https://www.sbert.net/) with a multilingual model
 
 ## Fine-tuning Mistral 7B
 
-We used QLoRA for efficient fine-tuning with 4bit quantization, with Hugging Face Transformers more details are in the [paper]([url](https://arxiv.org/abs/2312.12740)) and the notebook [Mistral-Fine-Tuning-Adaptive-MT.ipynb](Mistral-Fine-Tuning-Adaptive-MT.ipynb)
+We used QLoRA for efficient fine-tuning with 4bit quantization, with Hugging Face Transformers. You can find more details in the [paper]([url](https://arxiv.org/abs/2312.12740)) and the notebook [Mistral-Fine-Tuning-Adaptive-MT.ipynb](Mistral-Fine-Tuning-Adaptive-MT.ipynb)
 
 
 ## Inference
