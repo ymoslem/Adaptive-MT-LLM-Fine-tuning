@@ -51,7 +51,7 @@ ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantizati
 ### Tokenizers
 
 * **Mistral 7B**: You can directly use the tokenizers from the Transformers library as illustrated in the notebook [Mistral-CTranslate2-Adaptive-MT.ipynb](Mistral-CTranslate2-Adaptive-MT.ipynb)
-* **NLLB-200**: Download the SentencePiece model for NLLB-200; then use it as as illustrated in the notebook [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
+* **NLLB-200**: Download the SentencePiece model for NLLB-200; then use it as illustrated in the notebook [NLLB-200-CTranslate2-Adaptive-MT.ipynb](NLLB-200-CTranslate2-Adaptive-MT.ipynb)
 ```
 !wget https://s3.amazonaws.com/opennmt-models/nllb-200/flores200_sacrebleu_tokenizer_spm.model
 ```
