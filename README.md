@@ -4,6 +4,13 @@ Code and data for the paper [Fine-tuning Large Language Models for Adaptive Mach
 
 The paper presents the outcomes of fine-tuning Mistral 7B, a general-purpose large language model (LLM), for adaptive machine translation (MT). The fine-tuning process involves utilizing a combination of zero-shot and one-shot translation prompts within the medical domain. Zero-shot prompts represet regular translation without any context, while one-shot prompts augment the new source with a similar translation pair, i.e. a fuzzy match, to improve the adherence to terminology and style of the domain The primary objective is to enhance real-time adaptive MT capabilities of Mistral 7B, enabling it to adapt translations to the required domain at inference time. Our experiments demonstrate that, with a relatively small dataset of 20,000 segments that incorporate a mix of zero-shot and one-shot prompts, fine-tuning significantly enhances Mistral's in-context learning ability, especially for real-time adaptive MT.
 
+## Dependencies
+
+You might want to install the latest versions of the used libraries, but if you are facing issues, try the versions used in the requirements file.
+```
+pip3 install -r requirements.train.txt
+```
+
 ## Data (training and test)
 
 The original dataset is a mix of medical datasets from [OPUS](https://opus.nlpl.eu/), namely ELRC, EMEA, SciELO, and TICO-19.
