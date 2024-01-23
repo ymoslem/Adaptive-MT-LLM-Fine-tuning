@@ -1,5 +1,6 @@
 accelerate==0.26.1
 bitsandbytes==0.42.0
+ctranslate2==3.24.0
 datasets==2.16.1
 peft==0.7.1
 transformers==4.35.2
