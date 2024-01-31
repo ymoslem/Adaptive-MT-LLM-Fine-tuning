@@ -8,7 +8,7 @@ The paper presents the outcomes of fine-tuning Mistral 7B, a general-purpose lar
 
 You might want to install the latest versions of the used libraries, but if you are facing issues, try the versions used in the requirements file.
 ```
-pip3 install -r requirements.train.txt
+pip3 install -r requirements.txt
 ```
 
 ## Data (training and test)
