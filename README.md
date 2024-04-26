@@ -17,14 +17,14 @@ The original dataset is a mix of medical datasets from [OPUS](https://opus.nlpl.
 
 ### Training data (small)
 
-* [Fine-tuning data - small](data/small-train/all-filtered.es.real.smalltrain): Data for actual fine-tuning: 10,000 translation pairs
-* [Context Dataset](data/small-train/all-filtered.es.fuzzy.smalltrain): Data for fuzzy match retrieval _for training_: 50,000 translation pairs
+* **Fine-tuning data - small** [[ES](data/small-train/all-filtered.es.real.smalltrain)][[EN](data/small-train/all-filtered.en.real.smalltrain)]: Data for actual fine-tuning: 10,000 translation pairs
+* **Context Dataset** [[ES](data/small-train/all-filtered.es.fuzzy.smalltrain)][[EN](data/small-train/all-filtered.en.fuzzy.smalltrain)]: Data for fuzzy match retrieval _for training_: 50,000 translation pairs
 * [Retrieved data](data/small-train/all-filtered.esen.ms-multi-12.online.smalltrain): Data after retrieval _for training_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
 
 ### Test Data
 
-* [Test dataset](data/test/all-filtered.es.real.test): Data used for actual inference/translation: 10,000 translation pairs
-* [Context Dataset](data/test/all-filtered.es.fuzzy.test): Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
+* **Test dataset** [[ES](data/test/all-filtered.es.real.test)][[EN](data/test/all-filtered.en.real.test)]: Data used for actual inference/translation: 10,000 translation pairs
+* **Context Dataset** [[ES](data/test/all-filtered.es.fuzzy.test)][[EN](data/test/all-filtered.en.fuzzy.test)]: Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
 * [Retrieved data](data/test/all-filtered.esen.ms-multi-12.online.test): Data after retrieval _for testing_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
 
 ## Data Processing
@@ -39,6 +39,7 @@ We use [Sentence-Transformers](https://www.sbert.net/) with a multilingual model
 
 We used QLoRA for efficient fine-tuning with 4bit quantization, with Hugging Face Transformers. You can find more details in the [paper]([url](https://arxiv.org/abs/2312.12740)) and the notebook [Mistral-Fine-Tuning-Adaptive-MT.ipynb](Mistral-Fine-Tuning-Adaptive-MT.ipynb)
 
+Prompts are created in this notebook using the `create_prompt()` function. If `one_shot=False` it creates a zero-shot translation prompt; otherwise, it creates a one-shot translation prompt. Please check out the notebook itself for actual examples.
 
 ## Inference
 
@@ -73,11 +74,13 @@ ct2-transformers-converter --model facebook/nllb-200-distilled-600M --quantizati
 
 Evaluation was done based on BLEU, chrF++, TER, and COMET metrics. The code is available at [Evaluation-Adaptive-MT.ipynb](Evaluation-Adaptive-MT.ipynb). The full evaluation scores are available at the [paper](https://arxiv.org/abs/2312.12740) under the Results section, and a detailed version is at [Evaluation-Scores-Adaptive-MT.csv](Evaluation-Scores-Adaptive-MT.csv)
 
+## Questions
 
+If you have questions, please feel free to [contact me](https://blog.machinetranslation.io/contact/).
 
 ## Citations
 
-1. Fine-tuning Large Language Models for Adaptive Machine Translation
+1. **Fine-tuning Large Language Models for Adaptive Machine Translation**
    
 ```
 @ARTICLE{Moslem2023-Finetuning-LLM-AdaptiveMT,
@@ -92,7 +95,7 @@ Evaluation was done based on BLEU, chrF++, TER, and COMET metrics. The code is a
 }
 
 ```
-2. Adaptive Machine Translation with Large Language Models
+2. **Adaptive Machine Translation with Large Language Models**
 
 ```
 
