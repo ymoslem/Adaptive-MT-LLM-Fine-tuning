@@ -82,7 +82,7 @@ If you have questions, please feel free to [contact me](https://blog.machinetran
 
 1. **Fine-tuning Large Language Models for Adaptive Machine Translation**
    
-```
+```bibtex
 @ARTICLE{Moslem2023-Finetuning-LLM-AdaptiveMT,
   title         = "{Fine-tuning Large Language Models for Adaptive Machine Translation}",
   author        = "Moslem, Yasmin and Haque, Rejwanul and Way, Andy",
@@ -97,8 +97,7 @@ If you have questions, please feel free to [contact me](https://blog.machinetran
 ```
 2. **Adaptive Machine Translation with Large Language Models**
 
-```
-
+```bibtex
 @INPROCEEDINGS{Moslem2023-AdaptiveMT,
   title     = "{Adaptive Machine Translation with Large Language Models}",
   booktitle = "{Proceedings of the 24th Annual Conference of the European Association
