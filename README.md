@@ -23,9 +23,9 @@ The original dataset is a mix of medical datasets from [OPUS](https://opus.nlpl.
 
 ### Test Data
 
-* **Test dataset** [[ES](data/es-en/testall-filtered.es.real.test)][[EN](data/es-en/testall-filtered.en.real.test)]: Data used for actual inference/translation: 10,000 translation pairs
-* **Context Dataset** [[ES](data/es-en/testall-filtered.es.fuzzy.test)][[EN](data/es-en/testall-filtered.en.fuzzy.test)]: Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
-* [Retrieved data](data/es-en/testall-filtered.esen.ms-multi-12.online.test): Data after retrieval _for testing_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
+* **Test dataset** [[ES](data/es-en/test/all-filtered.es.real.test)][[EN](data/es-en/test/all-filtered.en.real.test)]: Data used for actual inference/translation: 10,000 translation pairs
+* **Context Dataset** [[ES](data/es-en/test/all-filtered.es.fuzzy.test)][[EN](data/es-en/test/all-filtered.en.fuzzy.test)]: Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
+* [Retrieved data](data/es-en/test/all-filtered.esen.ms-multi-12.online.test): Data after retrieval _for testing_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
 
 ## Data Processing
 
