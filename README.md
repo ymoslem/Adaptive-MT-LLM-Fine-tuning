@@ -27,6 +27,8 @@ The original dataset is a mix of medical datasets from [OPUS](https://opus.nlpl.
 * **Context Dataset** [[ES](data/es-en/test/all-filtered.es.fuzzy.test)][[EN](data/es-en/test/all-filtered.en.fuzzy.test)]: Data for fuzzy match retrieval _for testing_: 50,000 translation pairs
 * [Retrieved data](data/es-en/test/all-filtered.esen.ms-multi-12.online.test): Data after retrieval _for testing_: 10,000 entries (format: {score} ||| {fuzzy_src_sent} ||| {new_src_sent} ||| {fuzzy_tgt_sent})
 
+**Update:** Currently, in addition to [ES-EN](data/es-en/) the data directory includes four more languages: [EN-FR](data/en-fr/), [EN-PT](data/en-pt/), [EN-SW](data/en-sw/), and [SW-EN](data/sw-en/).
+
 ## Data Processing
 
 The original dataset is a mix of medical datasets from OPUS, namely ELRC, EMEA, SciELO, and TICO-19. The pre-processing step mainly removes duplicates and too long sentences. The code for data pre-processing is at [Data-Processing-Adaptive-MT.ipynb](Data-Processing-Adaptive-MT.ipynb)
