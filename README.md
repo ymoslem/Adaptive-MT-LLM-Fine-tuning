@@ -85,7 +85,7 @@ If you have questions, please feel free to [contact me](https://blog.machinetran
 1. **Fine-tuning Large Language Models for Adaptive Machine Translation**
    
 ```bibtex
-@ARTICLE{Moslem2023-Finetuning-LLM-AdaptiveMT,
+@article{Moslem2023-Finetuning-LLM-AdaptiveMT,
   title         = "{Fine-tuning Large Language Models for Adaptive Machine Translation}",
   author        = "Moslem, Yasmin and Haque, Rejwanul and Way, Andy",
   month         =  dec,
@@ -100,7 +100,7 @@ If you have questions, please feel free to [contact me](https://blog.machinetran
 2. **Adaptive Machine Translation with Large Language Models**
 
 ```bibtex
-@INPROCEEDINGS{Moslem2023-AdaptiveMT,
+@inproceedings{Moslem2023-AdaptiveMT,
   title     = "{Adaptive Machine Translation with Large Language Models}",
   booktitle = "{Proceedings of the 24th Annual Conference of the European Association
                for Machine Translation}",
@@ -112,5 +112,20 @@ If you have questions, please feel free to [contact me](https://blog.machinetran
   url       = "https://aclanthology.org/2023.eamt-1.22",
   address   = "Tampere, Finland"
 }
-
 ```
+
+3. **Domain-Specific Translation with Open-Source Large Language Models: Resource-Oriented Analysis**
+
+```bibtex
+@article{Wassie2025-DomainSpecific-Translation-LLM,
+  title         = "{Domain-Specific Translation with Open-Source Large Language Models: Resource-Oriented Analysis}",
+  author        = "Wassie, Aman Kassahun and Molaei, Mahdi and Moslem, Yasmin",
+  month         =  may,
+  year          =  2025,
+  url           = "https://arxiv.org/abs/2412.05862",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CL",
+  eprint        = "2412.05862"
+}
+```
+
